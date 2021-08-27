@@ -1,0 +1,6 @@
+<div class="draggable-container">
+<h3>Controls</h3>
+<ng-container *ngFor="let control of formControls">
+    <div [formDraggable]="{data: {'name': control['name'], 'type': control['type'] }}" class="draggable">{{control['name']}}</div> 
+</ng-container>
+</div>

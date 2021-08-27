@@ -1,0 +1,24 @@
+<div class="droppable-container drop-target" formDropTarget (formDrop)="onDrop($event)">
+         <h3>Drag controls here</h3>
+        <form [formGroup]="form">
+            <div formArrayName="dropControls" *ngFor="let ctrls of form.controls.dropControls?.value; let i = index">
+                <ng-container [formGroupName]="i">              
+                  <div [ngSwitch]="ctrls.type">
+                    <div *ngSwitchCase="'text'">
+                        <input type="text" [placeholder]="ctrls.name" [name]="ctrls.name"/>
+                    </div>
+                    <div *ngSwitchCase="'dropdown'">
+                        <select>
+                            <option>Option 1</option>
+                            <option>Option 2</option>
+                        </select>
+                    </div>
+                    <div *ngSwitchDefault>
+                        <input type="text" placeholder="textbox" />
+                    </div>
+                    </div>
+                </ng-container>
+              </div>      
+
+        </form>
+  </div> 

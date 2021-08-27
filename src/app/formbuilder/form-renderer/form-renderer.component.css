@@ -1,0 +1,33 @@
+.droppable-container {
+    width: 50%;
+    float: left;
+    border: 3px dashed #ebebeb;
+    min-height: 600px;
+    height: auto;
+    padding: 20px;
+    margin: 20px;
+}
+.drop-target input, .drop-target select {
+    margin: 10px;
+    padding: 10px;
+    width: 200px;
+}
+.my-modal {
+    display: block;
+    background: rgba(0, 0, 0, 0.5);
+    height: 100vh;
+    width: 0;
+    }
+    .fade {
+        opacity: 0;
+        transition: opacity .15s linear;
+    }
+    .modal-backdrop.show {
+        opacity: .5;
+    }
+    .modal-backdrop.fade {
+        opacity: 0;
+    }
+    .fade.show {
+        opacity: 1;
+    }

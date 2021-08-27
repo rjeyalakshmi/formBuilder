@@ -1,0 +1,35 @@
+<button class="btn btn-lg btn-outline-primary" (click)="open(previewModal)">Preview</button>
+<ng-template #previewModal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Preview Form</h4>
+      <button type="button" class="btn btn-outline-primary close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form formGroupName="form">
+            <div formArrayName="dropControls" *ngFor="let ctrls of form.controls.formControls?.value; let i = index">
+                <ng-container formGroupName="i">              
+                  <div [ngSwitch]="ctrls.type">
+                    <div *ngSwitchCase="'text'">
+                        <input type="text" [placeholder]="ctrls.name" [name]="ctrls.name"/>
+                    </div>
+                    <div *ngSwitchCase="'dropdown'">
+                        <select>
+                            <option>Option 1</option>
+                            <option>Option 2</option>
+                        </select>
+                    </div>
+                    <div *ngSwitchDefault>
+                        <input type="text" placeholder="textbox" />
+                    </div>
+                    </div>
+                </ng-container>
+              </div>      
+
+        </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+    </div>
+  </ng-template>

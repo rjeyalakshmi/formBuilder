@@ -1,0 +1,5 @@
+.modal-body input, .modal-body select {
+    margin: 5px;
+padding: 5px;
+width: 100px;
+}
